@@ -1,7 +1,7 @@
 import { Atom, useAtomValue } from "jotai";
 import { a, easings, useTransition } from "@react-spring/web";
 
-export function Mount({ showAtom, children }: { showAtom: Atom<boolean>; } & React.HTMLAttributes<HTMLDivElement>) {
+export function MountSearch({ showAtom, children }: { showAtom: Atom<boolean>; } & React.HTMLAttributes<HTMLDivElement>) {
 
     const show = useAtomValue(showAtom);
 

@@ -2,12 +2,27 @@ import { useAtomValue } from "jotai";
 import { a, AnimatedProps, config, easings, useTransition } from "@react-spring/web";
 import { navOptionAtoms } from "@/store/store";
 import { A1_FormLogin, A1_FormCPass, A1_FormSearch } from "../1-forms";
-import { Mount } from "./1-mount";
+import { MountSearch } from "./1-mount-search";
 import { BlankScreen } from "./2-blank-screen";
+import { CSSProperties, ReactNode } from "react";
 
-const screens: ((props: AnimatedProps<{ style: React.CSSProperties; }>) => React.ReactElement)[] = [
-    ({ style }: { style: any; }) => <a.div style={style}><A1_FormLogin suffix={'-1'} /></a.div>,
-    ({ style }: { style: any; }) => <a.div style={style}><A1_FormCPass suffix={'-2'} /></a.div>,
+type ScreensProps = (props: AnimatedProps<{ anim: CSSProperties; }>) => ReactNode;
+
+const screens: (ScreensProps)[] = [
+    ({ anim }) => {
+        return (
+            <a.div style={anim}>
+                <A1_FormLogin suffix={'-1'} />
+            </a.div>
+        );
+    },
+    ({ anim }) => {
+        return (
+            <a.div style={anim}>
+                <A1_FormCPass suffix={'-2'} />
+            </a.div>
+        );
+    },
 ];
 
 export function A3_Screens() {
@@ -34,19 +49,21 @@ export function A3_Screens() {
         <div className="overflow-hidden">
             <div className="mt-8 min-h-[26rem] flex items-start justify-center">
                 {blankScreen
-                    ? <BlankScreen />
+                    ? (
+                        <BlankScreen />
+                    )
                     : showSearch
                         ? (
-                            <Mount showAtom={navOptionAtoms.showSearchAtom}>
+                            <MountSearch showAtom={navOptionAtoms.showSearchAtom}>
                                 <A1_FormSearch />
-                            </Mount>
+                            </MountSearch>
                         )
                         : (<>
                             {transitions(
-                                (styles, item, transition) => {
+                                (anim, item, transition) => {
                                     // console.log('%c...................transitions() currentIdx = %i %o phase %c%s%c transition', colorIdx(), currentIdx, { item }, 'color: green', transition.phase, 'color: gray', transition);
                                     const Screen = screens[currentIdx];
-                                    return Screen ? <Screen style={styles} /> : null;
+                                    return Screen ? <Screen anim={anim} /> : null;
                                 })
                             }
                         </>)
