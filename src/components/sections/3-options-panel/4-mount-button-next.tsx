@@ -30,21 +30,21 @@ export function MountOptions({ showAtom, children }: MountProps) {
 }
 /**/
 
-export function Mount({ showAtom, children }: MountProps) {
+export function MountButtonNext({ showAtom, children }: MountProps) {
 
     const doInterval = useAtomValue(screenLoginOptionAtoms.doIntervalAtom);
     const show = useAtomValue(showAtom);
 
-    const transitions = useTransition(show && !doInterval, {
+    const transition = useTransition(show && !doInterval, {
         from: { x: -200, opacity: 0, },
         enter: { x: 0, opacity: 1, config: { duration: 150, easing: easings.easeOutCubic }, },
         leave: { x: -100, opacity: 0, config: { duration: 150, easing: easings.easeOutQuad }, /* onRest: () => console.log('done') */ },
     });
 
-    return transitions(
-        (styles, item) => {
+    return transition(
+        (anim, item) => {
             return !!item && (
-                <a.div style={styles}>
+                <a.div style={anim}>
                     {children}
                 </a.div>
             );

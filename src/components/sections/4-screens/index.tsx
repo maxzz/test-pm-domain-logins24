@@ -1,10 +1,10 @@
+import { CSSProperties, ReactNode } from "react";
 import { useAtomValue } from "jotai";
 import { a, AnimatedProps, config, easings, useTransition } from "@react-spring/web";
 import { navOptionAtoms } from "@/store/store";
 import { A1_FormLogin, A1_FormCPass, A1_FormSearch } from "../1-forms";
 import { MountSearch } from "./1-mount-search";
 import { BlankScreen } from "./2-blank-screen";
-import { CSSProperties, ReactNode } from "react";
 
 type ScreensProps = (props: AnimatedProps<{ anim: CSSProperties; }>) => ReactNode;
 
@@ -26,12 +26,12 @@ const screens: (ScreensProps)[] = [
 ];
 
 export function A3_Screens() {
-    const showSearch = useAtomValue(navOptionAtoms.showSearchAtom);
     //const blankScreen = true;
     const blankScreen = useAtomValue(navOptionAtoms.blankScreenAtom);
-    const currentIdx = useAtomValue(navOptionAtoms.screenIdxAtom);
+    const showSearch = useAtomValue(navOptionAtoms.showSearchAtom);
+    const currentScreenIdx = useAtomValue(navOptionAtoms.screenIdxAtom);
 
-    const transitions = useTransition(currentIdx, {
+    const transitions = useTransition(currentScreenIdx, {
         from: { opacity: 0, x: '150%', scale: 1, },
         enter: { opacity: 1, x: '0%', config: { easing: easings.easeInCubic, duration: 300, } },
         leave: { opacity: 0, x: '-150%', scale: 0, config: { easing: easings.easeInCubic, duration: 0, }, }, // or duration: 300
@@ -62,7 +62,7 @@ export function A3_Screens() {
                             {transitions(
                                 (anim, item, transition) => {
                                     // console.log('%c...................transitions() currentIdx = %i %o phase %c%s%c transition', colorIdx(), currentIdx, { item }, 'color: green', transition.phase, 'color: gray', transition);
-                                    const Screen = screens[currentIdx];
+                                    const Screen = screens[currentScreenIdx];
                                     return Screen ? <Screen anim={anim} /> : null;
                                 })
                             }
