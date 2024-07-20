@@ -1,12 +1,14 @@
 import { useAtomValue } from 'jotai';
-import { countdownAtom } from '@/store/store';
+import { countdownDisplayNumberAtom } from '@/store/store';
 
 export function CountdownDisplay() {
-    const countdown = useAtomValue(countdownAtom);
-    
+    const countdownDisplayNumber = useAtomValue(countdownDisplayNumberAtom);
+
     return (<>
-        {countdown >= 0 && (
-            <div className="text-5xl text-slate-100">{countdown}</div>
+        {countdownDisplayNumber >= 0 && (
+            <div className="text-5xl text-slate-100">
+                {countdownDisplayNumber}
+            </div>
         )}
     </>);
 }

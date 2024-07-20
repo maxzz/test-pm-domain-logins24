@@ -32,10 +32,10 @@ export function MountOptions({ showAtom, children }: MountProps) {
 
 export function MountButtonNext({ showAtom, children }: MountProps) {
 
-    const doInterval = useAtomValue(screenLoginOptionAtoms.doIntervalAtom);
+    const doRunInterval = useAtomValue(screenLoginOptionAtoms.doRunIntervalAtom);
     const show = useAtomValue(showAtom);
 
-    const transition = useTransition(show && !doInterval, {
+    const transition = useTransition(show && !doRunInterval, {
         from: { x: -200, opacity: 0, },
         enter: { x: 0, opacity: 1, config: { duration: 150, easing: easings.easeOutCubic }, },
         leave: { x: -100, opacity: 0, config: { duration: 150, easing: easings.easeOutQuad }, /* onRest: () => console.log('done') */ },
