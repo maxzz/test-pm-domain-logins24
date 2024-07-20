@@ -1,0 +1,45 @@
+{
+    "name": "test-domain-logins22",
+    "version": "0.1.1",
+    "license": "MIT",
+    "description": "QA test pages",
+    "type": "module",
+    "dependencies": {
+        "@popperjs/core": "2.11.8",
+        "@r2wc/react-to-web-component": "^2.0.3",
+        "@react-spring/web": "9.7.3",
+        "@use-gesture/react": "10.3.1",
+        "dom-confetti": "^0.2.2",
+        "jotai": "2.9.0",
+        "leva": "0.9.35",
+        "marked": "13.0.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hot-toast": "2.4.1",
+        "react-popper": "2.3.0",
+        "react-popper-tooltip": "4.4.2",
+        "react-use": "17.5.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-replace": "^5.0.7",
+        "@tailwindcss/forms": "0.5.7",
+        "@types/node": "20.14.10",
+        "@types/react": "18.3.3",
+        "@types/react-dom": "18.3.0",
+        "@vitejs/plugin-react": "4.3.1",
+        "autoprefixer": "10.4.19",
+        "postcss": "8.4.39",
+        "rollup-plugin-visualizer": "5.12.0",
+        "tailwindcss": "3.4.5",
+        "typescript": "5.5.3",
+        "vite": "5.3.3"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "build_types": "tsc && vite build",
+        "preview": "vite preview",
+        "predeploy": "pnpm build",
+        "deploy": "gh-pages -d dist"
+    }
+}

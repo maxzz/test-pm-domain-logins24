@@ -1,0 +1,74 @@
+{
+	"files": [
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/types/internal.d.ts",
+			"bookmarks": [
+				{
+					"line": 17,
+					"column": 32,
+					"label": "AnimationTarget"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/types/functions.d.ts",
+			"bookmarks": [
+				{
+					"line": 62,
+					"column": 25,
+					"label": "EventHandler"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/types/props.d.ts",
+			"bookmarks": [
+				{
+					"line": 31,
+					"column": 28,
+					"label": "SpringProps"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/types/transition.d.ts",
+			"bookmarks": [
+				{
+					"line": 14,
+					"column": 38,
+					"label": "UseTransitionProps"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/TransitionPhase.d.ts",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 29,
+					"label": "TransitionPhase"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/hooks/useTransition.d.ts",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 37,
+					"label": "useTransition"
+				}
+			]
+		},
+		{
+			"path": "node_modules/@react-spring/core/dist/declarations/src/hooks/useSpring.d.ts",
+			"bookmarks": [
+				{
+					"line": 27,
+					"column": 33,
+					"label": "useSpring"
+				}
+			]
+		}
+	]
+}

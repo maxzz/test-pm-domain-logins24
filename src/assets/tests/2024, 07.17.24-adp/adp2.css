@@ -1,0 +1,401 @@
+html {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+}
+
+.busy-indicator {
+    inset: 0px;
+    background-color: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 50;
+}
+
+.spinner {
+    height: 64px;
+    width: 64px;
+    stroke: rgb(121, 103, 174);
+    animation: 0.9875s linear 0s infinite normal none running rotator;
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.wrapper {
+    animation: 6s ease-in-out 0s infinite normal none running dashrotator;
+    stroke: rgb(121, 103, 174);
+}
+
+@keyframes dashrotator {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+.track {
+    stroke-width: 8px;
+    stroke: rgb(227, 221, 244);
+    fill: none;
+    stroke-linecap: round;
+}
+
+.path {
+    transform-origin: center center;
+    stroke-dasharray: 187;
+    stroke-dashoffset: 187;
+    stroke: rgb(121, 103, 174);
+    stroke-width: 8px;
+    animation: 6s cubic-bezier(0.42, 0.01, 0.58, 1) 0s infinite normal none running dash;
+    fill: none;
+    stroke-linecap: round;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 187;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        stroke-dashoffset: 46.75;
+        transform: rotate(135deg);
+    }
+
+    100% {
+        stroke-dashoffset: 187;
+        transform: rotate(450deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-rtl {
+        margin-inline-start: auto;
+    }
+}
+
+.reg-req-dropdown-icon {
+    color: red;
+}
+
+.reg-form-pwd-error-label {
+    color: rgb(212, 15, 15);
+}
+
+.submit-button-align {
+    width: auto;
+    text-align: center;
+}
+
+.form-group-data-collection {
+    margin-bottom: 12px;
+}
+
+.server-error-continue-bt {
+    padding-top: 40px;
+}
+
+.qna-server-error-alert-message {
+    font-weight: 600;
+    text-align: center;
+}
+
+.sec-qa-label {
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.form-align {
+    margin-bottom: 10px;
+}
+
+.align-submit {
+    margin-top: 38px;
+    text-align: center;
+}
+
+.safari-button-align {
+    display: inline-block;
+}
+
+.padding-align-inc-width {
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-bottom: 20px;
+}
+
+.qna_class {
+    width: 500px;
+}
+
+.qna-underline {
+    border-bottom: 1px solid rgb(187, 187, 187);
+    padding: 5px;
+}
+
+.padding-inc-width {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+}
+
+.channel-collection-label {
+    color: rgb(74, 74, 74);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group-channel-collection {
+    margin-bottom: 2px;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-group-channel-collection-btn {
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.channel-collection-envelope {
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.channel-collection-phone-input {
+    border-radius: 0px !important;
+    width: inherit !important;
+}
+
+.channel-collection-mobile-input-container {
+    font-family: inherit !important;
+    font-size: inherit !important;
+}
+
+.channel-collection-invalid-mobile-input {
+    border: 1px solid rgb(212, 15, 15) !important;
+    border-radius: 0px !important;
+    width: inherit !important;
+}
+
+.channel-collection-country-flag-dropdown-error,
+.channel-collection-invalid-email-input {
+    border: 1px solid rgb(212, 15, 15) !important;
+}
+
+.boundary-margin {
+    margin: 0px 50px 20px;
+}
+
+@media (max-width: 769px) {
+    .boundary-margin {
+        margin: 0px;
+    }
+}
+
+.info-circle {
+    height: 4em;
+    width: 4em;
+    color: rgb(26, 128, 153);
+    fill: rgb(26, 128, 153);
+}
+
+.check-circle {
+    height: 4em;
+    width: 4em;
+    color: rgb(17, 154, 14);
+    fill: rgb(17, 154, 14);
+}
+
+.cross-circle {
+    height: 4em;
+    width: 4em;
+    color: rgb(98, 98, 98);
+    fill: rgb(98, 98, 98);
+}
+
+.close-thin {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.channel_collection_warning_headline {
+    color: rgb(74, 74, 74);
+    font-size: 24px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.passcode.vdl-textbox {
+    width: 150px;
+    height: 44px;
+    font-size: 30px;
+    border: 1px solid rgb(102, 175, 233);
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(102, 175, 233) 0px 0px 4px 0px;
+    text-align: center;
+}
+
+.passcode_lavel_padding {
+    padding-top: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.passcode_title_color {
+    color: rgb(74, 74, 74);
+}
+
+.passcode_margin_form {
+    margin: 0px 35px;
+}
+
+.resend_code_div {
+    height: 78px;
+    width: 470px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.lineheight-form.vdl-checkbox {
+    line-height: 16px;
+    margin-bottom: 0px;
+}
+
+.consent-padding {
+    padding-left: 30px;
+    line-height: 16px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.big-item {
+    flex-basis: 56%;
+}
+
+.small-item {
+    flex-basis: auto;
+}
+
+.emea-phone-input .react-tel-input .flag {
+    width: 16px;
+    height: 11px;
+    background-image: none !important;
+}
+
+.emea-phone-input .react-tel-input .selected-flag .iso2-class {
+    text-transform: uppercase;
+    position: relative;
+    top: -4px;
+    padding-left: 0px;
+}
+
+.emea-phone-input .react-tel-input .selected-flag .arrow {
+    left: 22px !important;
+    margin-top: -21px;
+}
+
+.emea-phone-input .react-tel-input .flag-dropdown {
+    position: absolute;
+    top: 2px;
+    bottom: -1px;
+    padding: 0px;
+    background-color: rgb(202, 202, 202);
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px 0px 0px 3px;
+    display: inline;
+}
+
+.emea-phone-input .react-tel-input,
+.emea-phone-input .react-tel-input .selected-flag:hover {
+    background-color: rgb(202, 202, 202) !important;
+}
+
+.emea-phone-input .react-tel-input .country-list .country:hover {
+    background-color: rgb(207, 244, 254) !important;
+    border: 1px solid rgb(26, 128, 153) !important;
+}
+
+.emea-phone-input .react-tel-input .country-list .country:focus {
+    background-color: rgb(207, 244, 254);
+    border: 1px solid rgb(26, 128, 153);
+}
+
+.emea-phone-input .react-tel-input .country-list .country.highlight {
+    background-color: rgb(26, 128, 153) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.react-tel-input input[type="tel"] {
+    text-align: left !important;
+}
+
+.flag-dropdown {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    padding: 0px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px 0px 0px 3px;
+    display: none;
+}
+
+.form-control {
+    position: relative;
+    font-size: 14px;
+    margin-left: 0px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    line-height: 25px;
+    height: 35px;
+    width: 300px;
+    outline: none;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-left: 10px !important;
+}
+
+.special-label {
+    display: none !important;
+}
+
+.delete-icon-align {
+    text-align: end;
+}
+
+.usage-drop-padding {
+    padding: 0px 15px;
+}
+
+.break-padding {
+    padding-bottom: 20px;
+}
+
+.vb-padding-para {
+    padding-bottom: 8px;
+}

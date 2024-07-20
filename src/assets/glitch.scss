@@ -1,0 +1,53 @@
+/*
+//https://codesandbox.io/static/js/vendors~app~embed~sandbox~sandbox-startup.bcc15d438.chunk.js:1:3629
+$glitch-clr: black;
+$glitch-bkg: red;
+
+.glitch {
+    position: relative;
+
+    color: $glitch-clr;
+    background: $glitch-bkg;
+
+    font-size: 152px;
+    text-align: left;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+    //color: inherit;    
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: 3s linear 0s infinite alternate-reverse none running dkAVdY;
+    left: 2px;
+    text-shadow: red -1px 0px;
+    background: $glitch-bkg;
+}
+
+.glitch::after {
+    animation: 6s linear 0s infinite alternate-reverse none running dkAVdY;
+    left: -2px;
+    text-shadow: blue -1px 0px;
+    background: $glitch-bkg;
+}
+
+@keyframes dkAVdY { 
+    0% { clip-path: inset(10% 0px 100%); }
+    20% { clip-path: inset(61% 10% 1% 0px); }
+    40% { clip-path: inset(43% 0px 12%); }
+    60% { clip-path: inset(25% 0px 58% 10%); }
+    80% { clip-path: inset(14% 0px 7%); }
+    100% { clip-path: inset(100% 10% 43% 0px); }
+}
+*/
+
+/* <div> <span data-text="404" className="text-center glitch">404</span> </div> */

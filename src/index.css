@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        /* font-family: Consolas; */
+        /* font-family: Merriweather, system-ui, sans-serif; */
+        font-family: "Source Sans Pro", system-ui, sans-serif;
+        /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+    }
+}
+
+@layer components {
+    .hoverurl {
+        @apply border-b hover:border-b-2 border-url hover:text-url;
+    }
+
+    .extension-small-icon-outline {
+        @apply outline outline-1 sm:outline-2 outline-offset-1 outline-green-500 sm:outline-green-500/30;
+    }
+}
+
+@layer components {
+    #leva__root [type="text"],
+    .leva-override [type="text"] {
+        background-color: transparent;
+        padding: 0 var(--leva-space-sm);
+        font-size: inherit;
+    }
+}
+
+@layer components {
+    .float-input {
+        @apply px-2 py-2 border-b focus:border-b-2 focus:border-b-blue-600 focus:outline-none placeholder-transparent transition-colors;
+    }
+    .float-label {
+        @apply absolute
+            left-0
+            peer-placeholder-shown:left-2
+            
+            top-1/2
+            -translate-y-10
+            peer-focus:-translate-y-10
+            peer-placeholder-shown:-translate-y-1/2
+
+            text-xs
+            peer-focus:text-xs
+            peer-placeholder-shown:[font-size:inherit]
+            peer-placeholder-shown:[line-height:inherit]
+
+            [color:inherit]
+            peer-focus:[color:inherit]
+            peer-placeholder-shown:text-slate-400
+
+            cursor-text
+            transition-transform;
+    }
+}
+
+/* @layer components {
+    input:focus-within ~ div,
+    input:not(:placeholder-shown) ~ div {
+        @apply -top-5;
+    }
+} */
+
+/* roboto-flex-regular - latin */
+/* roboto-flex-regular - latin */
+/*
+@font-face {
+    font-family: "Roboto Flex";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("./assets/fonts/roboto-flex-v8-latin-regular.woff2") format("woff2");
+}
+*/
+
+/* merriweather-700 - latin */
+/*
+@font-face {
+    font-family: "Merriweather";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url("./assets/fonts/merriweather-v30-latin-700.woff2") format("woff2");
+}
+*/
+    
+/* source-sans-pro-regular - latin */
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("./assets/fonts/source-sans-pro-v21-latin-regular.woff2") format("woff2");
+}
+
+/* source-sans-pro-700 - latin */
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url("./assets/fonts/source-sans-pro-v21-latin-700.woff2") format("woff2");
+}
