@@ -1,7 +1,6 @@
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { doNextScreenAtom, isLoginScreenAtom, navOptionAtoms } from "@/store/store";
+import { navOptionAtoms, doNextScreenAtom, isLoginScreenAtom } from "@/store/store";
 import { classNames } from "@/utils";
-import { FormOptions } from "./1-form-options";
+import { useAtom, useSetAtom } from "jotai";
 import { MountButtonNext } from "./4-mount-button-next";
 
 const input1Classes = "size-5 form-checkbox text-slate-400 focus:ring-slate-500 focus:ring-1 rounded cursor-pointer";
@@ -16,7 +15,7 @@ active:scale-[.97] \
 cursor-pointer \
 outline-none";
 
-function CheckboxSearch() {
+export function CheckboxSearch() {
     const [showSearch, setShowSearch] = useAtom(navOptionAtoms.showSearchAtom);
     const doNextLoginOrCPassScreen = useSetAtom(doNextScreenAtom);
 
@@ -30,8 +29,7 @@ function CheckboxSearch() {
                     data-dbg-tm
                     className={input1Classes}
                     checked={showSearch}
-                    onChange={() => setShowSearch((v) => !v)}
-                />
+                    onChange={() => setShowSearch((v) => !v)} />
 
                 <div>
                     Search page
@@ -43,33 +41,12 @@ function CheckboxSearch() {
                 <input
                     type="button"
                     data-dbg-tm
-                    className={classNames(input2Classes, /*showSearch && 'invisible'*/)}
+                    className={classNames(input2Classes)}
                     value="Next"
                     onClick={doNextLoginOrCPassScreen}
-                    title="Next screen"
-                />
+                    title="Next screen" />
             </MountButtonNext>
 
         </div>
     );
 }
-
-export function OptionsPanel() {
-    const isLoginScreen = useAtomValue(isLoginScreenAtom);
-
-    return (
-        <div className="self-center w-[290px] bg-slate-100 border-slate-200 border rounded-sm select-none flex flex-col justify-center gap-2">
-            {/*
-            <MountOptions showAtom={isLoginScreenAtom}>
-                <FormOptions className={`${!isLoginScreen && 'invisible'}`} />
-            </MountOptions>
-            */}
-
-            <FormOptions className={`${!isLoginScreen && "invisible"}`} />
-
-            <CheckboxSearch />
-        </div>
-    );
-}
-
-//TODO: hot keys for Use webComponents switch

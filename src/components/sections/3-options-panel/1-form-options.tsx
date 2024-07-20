@@ -1,11 +1,12 @@
+import { HTMLAttributes } from "react";
+import { useAtom } from "jotai";
 import { screenLoginOptionAtoms } from "@/store/store";
 import { classNames } from "@/utils";
-import { useAtom } from "jotai";
-import { Checkbox } from "./2-checkbox";
-import { LevelSwitch } from "./3-level-switch";
-import { OptionInterval } from "./3-option-interval";
+import { OptionInterval } from "./2-option-interval";
+import { LevelSwitch } from "./8-level-switch";
+import { Checkbox } from "./9-checkbox";
 
-export function FormOptions({ className, ...rest }: React.HTMLAttributes<HTMLDivElement>) {
+export function FormOptions({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
     const { revealAtom, pageReloadAtom, useWebCompAtom, } = screenLoginOptionAtoms;
 
     const [reveal, setReveal] = useAtom(revealAtom);
@@ -18,7 +19,7 @@ export function FormOptions({ className, ...rest }: React.HTMLAttributes<HTMLDiv
 
             <OptionInterval />
 
-            <Checkbox label="Reload page vs. form" checked={pageReload} onChange={() => setPageReload((v) => !v)} />
+            <Checkbox label="Reload the page instead of form" checked={pageReload} onChange={() => setPageReload((v) => !v)} />
 
             <div className="flex items-center">
                 <Checkbox label="Use WebComponents" checked={useWebComp} onChange={() => setUseWebComp((v) => !v)} />
@@ -28,3 +29,5 @@ export function FormOptions({ className, ...rest }: React.HTMLAttributes<HTMLDiv
         </div>
     );
 }
+
+//TODO: hot keys for Use webComponents switch
