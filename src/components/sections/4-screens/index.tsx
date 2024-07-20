@@ -31,9 +31,6 @@ export function A3_Screens() {
     const showSearch = useAtomValue(navOptionAtoms.showSearchAtom);
     const currentScreenIdx = useAtomValue(navOptionAtoms.screenIdxAtom);
 
-    console.log('A3_Screens', { blankScreen, showSearch, currentScreenIdx });
-    
-
     const transitions = useTransition(currentScreenIdx, {
         from: { opacity: 0, x: '150%', scale: 1, },
         enter: { opacity: 1, x: '0%', config: { easing: easings.easeInCubic, duration: 300, } },

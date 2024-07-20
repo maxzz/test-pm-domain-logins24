@@ -4,7 +4,6 @@ import { navOptionAtoms } from "@/store/store";
 
 export function BlankScreen() {
     const blankScreen = useSetAtom(navOptionAtoms.blankScreenAtom);
-    console.log('BlankScreen');
 
     const anim = useSpring({
         from: { scaleY: 1, scaleX: 1, opacity: 1, background: 'red', }, // #94a3b8
@@ -13,7 +12,6 @@ export function BlankScreen() {
             { scaleY: 1, scaleX: 0, config: { duration: 1, } },
             { scaleY: 1, scaleX: .9, opacity: 0, config: { easing: easings.easeOutCubic, duration: 1000, }, onRest: () => blankScreen(false), },
         ],
-        // onRest: () => blankScreen(false),
         // config: { duration: 400, },
     });//bg-orange-400/20
 

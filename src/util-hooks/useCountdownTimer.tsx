@@ -23,11 +23,8 @@ export function useCountdownTimer({ intervalSecVal, countdownDisplayNumberAtom, 
                 stopInterval();
                 setCountdownDisplayNumber(intervalSecVal);
                 setLocalIsRunning(true);
-                console.log('Countdown started');
-                
             } else {
                 setLocalIsRunning(false);
-                console.log('Countdown stopped');
             }
         }, [isRunning, intervalSecVal]
     );
@@ -41,7 +38,6 @@ export function useCountdownTimer({ intervalSecVal, countdownDisplayNumberAtom, 
                             (v) => {
                                 v--;
                                 v < 0 && setIsRunning(false);
-                                console.log('Countdown', v);
                                 return v;
                             }
                         );
