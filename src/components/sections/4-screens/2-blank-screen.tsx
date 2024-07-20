@@ -11,9 +11,9 @@ export function BlankScreen() {
         to: [
             { scaleY: .1, scaleX: .9, config: { duration: 700, } },
             { scaleY: 1, scaleX: 0, config: { duration: 1, } },
-            { scaleY: 1, scaleX: .9, opacity: 0, config: { easing: easings.easeOutCubic, duration: 1000, } },
+            { scaleY: 1, scaleX: .9, opacity: 0, config: { easing: easings.easeOutCubic, duration: 1000, }, onRest: () => blankScreen(false), },
         ],
-        onRest: () => blankScreen(false),
+        // onRest: () => blankScreen(false),
         // config: { duration: 400, },
     });//bg-orange-400/20
 
