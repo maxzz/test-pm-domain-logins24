@@ -1,15 +1,23 @@
-import { PrimitiveAtom } from "jotai";
-import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
+import { Atomize, OnValueChangeAny } from "@/util-hooks";
+import { createAtomizedAtoms } from "./9-create-atomized-atoms";
 
-export function createAtomizedAtoms<T>(initialValues: T, save: OnValueChangeAny): Atomize<T> {
-    const atoms: any = {};
+export type Creds = {
+    username: string;       // username
+    password: string;       // current password
+    updtpass: string;       // new password
+    confpass: string;       // confirm new password
+    searchAA: string;       // search text for AA screen
+};
 
-    for (const key in initialValues) {
-        atoms[`${key}Atom`] = atomWithCallback(initialValues[key], save) as PrimitiveAtom<T[keyof T]>;
-    }
+export const initialCreds: Creds = {
+    username: '',
+    password: '',
+    updtpass: '',
+    confpass: '',
+    searchAA: '',
+};
 
-    return atoms  as Atomize<T>;
-}
+//export type CredsAtoms = Prettify<Atomize<Creds>>;
 
 export function createCreadAtoms<T>(initialValues: T, save: OnValueChangeAny): Atomize<T> {
     const rv = createAtomizedAtoms(initialValues, save);

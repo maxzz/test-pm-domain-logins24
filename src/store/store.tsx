@@ -1,7 +1,7 @@
 import { atom, Getter, PrimitiveAtom, SetStateAction } from 'jotai';
 import { Atomize, atomWithCallback } from '@/util-hooks';
 import { debounce } from '@/utils';
-import { createCreadAtoms } from './1-creds-store';
+import { createCreadAtoms, Creds, initialCreds } from './1-creds-store';
 
 export const enum CONST {
     MaxLevel = 3,
@@ -16,13 +16,7 @@ type Store = {
 };
 
 export let initialStoreData: Store = {
-    creds: {
-        username: '',
-        password: '',
-        updtpass: '',
-        confpass: '',
-        searchAA: '',
-    },
+    creds: {...initialCreds},
     navOptions: {
         screenIdx: 0,
         showSearch: false,
@@ -47,7 +41,7 @@ namespace Storage {
                 let obj = JSON.parse(s) as Store;
                 const { creds, navOptions, screenLoginOptions, } = obj;
                 // initialData = { ...initialData, creds: {...creds}, navOptions: {...navOptions}, screenLoginOptions: {...screenLoginOptions}, };
-                initialStoreData.creds = { ...initialStoreData.creds, ...creds };
+                initialStoreData.creds = { ...initialCreds, ...creds };
                 initialStoreData.navOptions = { ...initialStoreData.navOptions, ...navOptions };
                 initialStoreData.screenLoginOptions = { ...initialStoreData.screenLoginOptions, ...screenLoginOptions };
             } catch (error) {
@@ -92,22 +86,7 @@ namespace Storage {
 
 //#region Credential atoms
 
-type Creds = {
-    username: string;       // username
-    password: string;       // current password
-    updtpass: string;       // new password
-    confpass: string;       // confirm new password
-    searchAA: string;       // search text for AA screen
-};
-
-// export const credAtoms: Atomize<Creds> = {
-//     usernameAtom: atomWithCallback(initialStoreData.creds.username, Storage.save),
-//     passwordAtom: atomWithCallback(initialStoreData.creds.password, Storage.save),
-//     updtpassAtom: atomWithCallback(initialStoreData.creds.updtpass, Storage.save),
-//     confpassAtom: atomWithCallback(initialStoreData.creds.confpass, Storage.save),
-//     searchAAAtom: atomWithCallback(initialStoreData.creds.searchAA, Storage.save),
-// };
-export const credAtoms: Atomize<Creds> = createCreadAtoms(initialStoreData.creds, Storage.save);
+export const credAtoms = createCreadAtoms(initialStoreData.creds, Storage.save);
 
 //#endregion Credential atoms
 
