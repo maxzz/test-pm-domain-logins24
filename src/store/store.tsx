@@ -1,6 +1,7 @@
 import { atom, Getter, PrimitiveAtom, SetStateAction } from 'jotai';
 import { Atomize, atomWithCallback } from '@/util-hooks';
 import { debounce } from '@/utils';
+import { createCreadAtoms } from './1-creds-store';
 
 export const enum CONST {
     MaxLevel = 3,
@@ -99,13 +100,14 @@ type Creds = {
     searchAA: string;       // search text for AA screen
 };
 
-export const credAtoms: Atomize<Creds> = {
-    usernameAtom: atomWithCallback(initialStoreData.creds.username, Storage.save),
-    passwordAtom: atomWithCallback(initialStoreData.creds.password, Storage.save),
-    updtpassAtom: atomWithCallback(initialStoreData.creds.updtpass, Storage.save),
-    confpassAtom: atomWithCallback(initialStoreData.creds.confpass, Storage.save),
-    searchAAAtom: atomWithCallback(initialStoreData.creds.searchAA, Storage.save),
-};
+// export const credAtoms: Atomize<Creds> = {
+//     usernameAtom: atomWithCallback(initialStoreData.creds.username, Storage.save),
+//     passwordAtom: atomWithCallback(initialStoreData.creds.password, Storage.save),
+//     updtpassAtom: atomWithCallback(initialStoreData.creds.updtpass, Storage.save),
+//     confpassAtom: atomWithCallback(initialStoreData.creds.confpass, Storage.save),
+//     searchAAAtom: atomWithCallback(initialStoreData.creds.searchAA, Storage.save),
+// };
+export const credAtoms: Atomize<Creds> = createCreadAtoms(initialStoreData.creds, Storage.save);
 
 //#endregion Credential atoms
 
