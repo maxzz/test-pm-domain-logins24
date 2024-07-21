@@ -1,5 +1,6 @@
 import { Atomize, OnValueChangeAny } from "@/util-hooks";
 import { createAtomizedAtoms } from "./9-create-atomized-atoms";
+import { Getter } from "jotai";
 
 export type Creds = {
     username: string;       // username
@@ -21,5 +22,16 @@ export const initialCreds: Creds = {
 
 export function createCreadAtoms<T>(initialValues: T, save: OnValueChangeAny): Atomize<T> {
     const rv = createAtomizedAtoms(initialValues, save);
+    return rv;
+}
+
+export function extractCreds<T>(credAtoms: Atomize<Creds>, get: Getter): Creds {
+    const rv = {
+        username: get(credAtoms.usernameAtom),
+        password: get(credAtoms.passwordAtom),
+        updtpass: get(credAtoms.updtpassAtom),
+        confpass: get(credAtoms.confpassAtom),
+        searchAA: get(credAtoms.searchAAAtom),
+    }
     return rv;
 }

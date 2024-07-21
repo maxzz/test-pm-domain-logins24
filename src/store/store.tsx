@@ -1,7 +1,7 @@
 import { atom, Getter, PrimitiveAtom, SetStateAction } from 'jotai';
 import { Atomize, atomWithCallback } from '@/util-hooks';
 import { debounce } from '@/utils';
-import { createCreadAtoms, Creds, initialCreds } from './1-creds-store';
+import { createCreadAtoms, Creds, extractCreds, initialCreds } from './1-creds-store';
 
 export const enum CONST {
     MaxLevel = 3,
@@ -53,13 +53,7 @@ namespace Storage {
 
     export const saveDebounced = debounce(function _save(get: Getter) {
         let newStore: Store = {
-            creds: {
-                username: get(credAtoms.usernameAtom),
-                password: get(credAtoms.passwordAtom),
-                updtpass: get(credAtoms.updtpassAtom),
-                confpass: get(credAtoms.confpassAtom),
-                searchAA: get(credAtoms.searchAAAtom),
-            },
+            creds: extractCreds(credAtoms, get),
             navOptions: {
                 screenIdx: get(navOptionAtoms.screenIdxAtom),
                 showSearch: get(navOptionAtoms.showSearchAtom),
