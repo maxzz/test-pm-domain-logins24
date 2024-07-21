@@ -1,9 +1,9 @@
 import { useSetAtom } from "jotai";
 import { a, easings, useSpring } from "@react-spring/web";
-import { navOptionAtoms } from "@/store/store";
+import { blankScreenAtom } from "@/store/store";
 
 export function BlankScreen() {
-    const blankScreen = useSetAtom(navOptionAtoms.blankScreenAtom);
+    const blankScreen = useSetAtom(blankScreenAtom);
 
     const anim = useSpring({
         from: { scaleY: 1, scaleX: 1, opacity: 1, background: 'red', }, // #94a3b8

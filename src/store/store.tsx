@@ -2,6 +2,7 @@ import { atom, Getter, PrimitiveAtom, SetStateAction } from 'jotai';
 import { Atomize, atomWithCallback } from '@/util-hooks';
 import { debounce } from '@/utils';
 import { createCreadAtoms, Creds, extractCreds, initialCreds } from './1-creds-store';
+import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from './2-nav-options';
 
 export const enum CONST {
     MaxLevel = 3,
@@ -16,11 +17,8 @@ type Store = {
 };
 
 export let initialStoreData: Store = {
-    creds: {...initialCreds},
-    navOptions: {
-        screenIdx: 0,
-        showSearch: false,
-    },
+    creds: { ...initialCreds },
+    navOptions: { ...initialNavOptions },
     screenLoginOptions: {
         reveal: false,
         doRunInterval: false,
@@ -42,7 +40,7 @@ namespace Storage {
                 const { creds, navOptions, screenLoginOptions, } = obj;
                 // initialData = { ...initialData, creds: {...creds}, navOptions: {...navOptions}, screenLoginOptions: {...screenLoginOptions}, };
                 initialStoreData.creds = { ...initialCreds, ...creds };
-                initialStoreData.navOptions = { ...initialStoreData.navOptions, ...navOptions };
+                initialStoreData.navOptions = { ...initialNavOptions, ...navOptions };
                 initialStoreData.screenLoginOptions = { ...initialStoreData.screenLoginOptions, ...screenLoginOptions };
             } catch (error) {
             }
@@ -54,10 +52,7 @@ namespace Storage {
     export const saveDebounced = debounce(function _save(get: Getter) {
         let newStore: Store = {
             creds: extractCreds(credAtoms, get),
-            navOptions: {
-                screenIdx: get(navOptionAtoms.screenIdxAtom),
-                showSearch: get(navOptionAtoms.showSearchAtom),
-            },
+            navOptions: extractNavOptions(navOptionAtoms, get),
             screenLoginOptions: {
                 reveal: get(screenLoginOptionAtoms.revealAtom),
                 doRunInterval: get(screenLoginOptionAtoms.doRunIntervalAtom),
@@ -73,9 +68,6 @@ namespace Storage {
     export const save = ({ get }: { get: Getter; }) => Storage.saveDebounced(get);
 }
 
-// console.log('level', CONST.MaxLevel);
-// console.log('Storage', initialStoreData);
-
 //#endregion Storage
 
 //#region Credential atoms
@@ -86,37 +78,21 @@ export const credAtoms = createCreadAtoms(initialStoreData.creds, Storage.save);
 
 //#region NavOptions
 
-type NavOptions = {
-    screenIdx: number;      // login (0) or cpass (1) screen
-    showSearch: boolean;    // show search page
-};
+export const navOptionAtoms = createNavOptionAtoms(initialStoreData.navOptions, Storage.save);
 
 const _blankScreenAtom = atom<boolean>(false); // show blank screen before login/cpass screen reload
 
-export const navOptionAtoms: Atomize<NavOptions> & { blankScreenAtom: PrimitiveAtom<boolean>; } = {
-    screenIdxAtom: atomWithCallback(initialStoreData.navOptions.screenIdx, Storage.save),
+export const blankScreenAtom = atom(
+    (get) => get(_blankScreenAtom),
+    (get, set, show: SetStateAction<boolean>) => {
+        const v = typeof show === 'function' ? show(get(_blankScreenAtom)) : show;
 
-    showSearchAtom: atomWithCallback(initialStoreData.navOptions.showSearch,
-        ({ get, set, nextValue }) => {
-            if (nextValue) {
-                set(screenLoginOptionAtoms.doRunIntervalAtom, false);
-            }
-            Storage.save({ get });
+        if (!v && get(screenLoginOptionAtoms.doRunIntervalAtom)) {
+            set(runCountdownAtom, true);
         }
-    ),
-
-    blankScreenAtom: atom(
-        (get) => get(_blankScreenAtom),
-        (get, set, show: SetStateAction<boolean>) => {
-            const v = typeof show === 'function' ? show(get(_blankScreenAtom)) : show;
-
-            if (!v && get(screenLoginOptionAtoms.doRunIntervalAtom)) {
-                set(runCountdownAtom, true);
-            }
-            set(_blankScreenAtom, v);
-        }
-    ),
-};
+        set(_blankScreenAtom, v);
+    }
+);
 
 export const isLoginScreenAtom = atom(
     (get) => /* get(navOptionAtoms.screenIdxAtom) === 0 && */ !get(navOptionAtoms.showSearchAtom),
@@ -139,7 +115,7 @@ export const doReloadScreenAtom = atom(
         if (get(screenLoginOptionAtoms.pageReloadAtom)) {
             window.location.reload();
         } else {
-            set(navOptionAtoms.blankScreenAtom, true);
+            set(blankScreenAtom, true);
         }
     }
 );

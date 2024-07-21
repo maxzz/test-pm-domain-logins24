@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from "react";
 import { useAtomValue } from "jotai";
 import { a, AnimatedProps, config, easings, useTransition } from "@react-spring/web";
-import { navOptionAtoms } from "@/store/store";
+import { blankScreenAtom, navOptionAtoms } from "@/store/store";
 import { A1_FormLogin, A1_FormCPass, A1_FormSearch } from "../1-forms";
 import { MountSearch } from "./1-mount-search";
 import { BlankScreen } from "./2-blank-screen";
@@ -27,7 +27,7 @@ const screens: (ScreensProps)[] = [
 
 export function A3_Screens() {
     //const blankScreen = true;
-    const blankScreen = useAtomValue(navOptionAtoms.blankScreenAtom);
+    const blankScreen = useAtomValue(blankScreenAtom);
     const showSearch = useAtomValue(navOptionAtoms.showSearchAtom);
     const currentScreenIdx = useAtomValue(navOptionAtoms.screenIdxAtom);
 
