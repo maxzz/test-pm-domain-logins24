@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { createPortal } from 'react-dom';
-import { classNames } from '@/utils';
-import { Config, usePopperTooltip } from 'react-popper-tooltip';
-import 'react-popper-tooltip/dist/styles.css';
+import * as React from "react";
+import { createPortal } from "react-dom";
+import { classNames } from "@/utils";
+import { Config, usePopperTooltip } from "react-popper-tooltip";
+import "react-popper-tooltip/dist/styles.css";
 
 type UITooltipOptions = {
     arrow?: boolean;

@@ -1,9 +1,9 @@
-import { atom, Getter, PrimitiveAtom, SetStateAction } from 'jotai';
-import { Atomize, atomWithCallback } from '@/util-hooks';
-import { debounce } from '@/utils';
-import { createCreadAtoms, Creds, extractCreds, initialCreds } from './1-creds-store';
-import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from './2-nav-options';
-import { createScreenLoginOptionAtoms, extractScreenLoginOptions, initialScreenLoginOptions, ScreenLoginOptions } from './3-screen-options';
+import { atom, Getter, PrimitiveAtom, SetStateAction } from "jotai";
+import { Atomize, atomWithCallback } from "@/util-hooks";
+import { debounce } from "@/utils";
+import { createCreadAtoms, Creds, extractCreds, initialCreds } from "./1-creds-store";
+import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from "./2-nav-options";
+import { createScreenLoginOptionAtoms, extractScreenLoginOptions, initialScreenLoginOptions, ScreenLoginOptions } from "./3-screen-options";
 
 //#region Storage
 

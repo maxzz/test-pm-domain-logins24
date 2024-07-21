@@ -1,7 +1,7 @@
-import { AnchorHTMLAttributes } from 'react';
-import { classNames } from '@/utils/classnames';
-import { IconGithubLogo } from '../ui';
-import { pageTitles } from '../xlinks';
+import { AnchorHTMLAttributes } from "react";
+import { classNames } from "@/utils";
+import { IconGithubLogo } from "../ui";
+import { pageTitles } from "../xlinks";
 
 export function IconSiteLink({ label, className, ...rest }: { label: string; } & AnchorHTMLAttributes<HTMLAnchorElement>) {
     return (

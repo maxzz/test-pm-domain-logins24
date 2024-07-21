@@ -1,7 +1,7 @@
-import { AppHeader } from '../1-header';
-import { AppFooter } from '../3-footer';
-import { A3_Screens } from '../sections/4-screens';
-import { OptionsPanel } from '../sections/3-options-panel';
+import { AppHeader } from "../1-header";
+import { AppFooter } from "../3-footer";
+import { A3_Screens } from "../sections/4-screens";
+import { OptionsPanel } from "../sections/3-options-panel";
 
 const testAreaStyles = {
     overflow: 'overlay',

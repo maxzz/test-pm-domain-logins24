@@ -1,6 +1,6 @@
-import { Children, HTMLAttributes, ReactNode, useState } from 'react';
-import { a, useTrail } from '@react-spring/web';
-import { SvgScreenCPass, SvgScreenLogin } from '../ui/icons';
+import { Children, HTMLAttributes, ReactNode, useState } from "react";
+import { a, useTrail } from "@react-spring/web";
+import { SvgScreenCPass, SvgScreenLogin } from "../ui/icons";
 
 /** /
 const ALogin = a(SvgScreenLogin);

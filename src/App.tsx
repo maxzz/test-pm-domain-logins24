@@ -1,6 +1,6 @@
-import { AppMain } from './components/2-main';
-import { UIToaster } from './components/ui/UiToaster';
-import '@/components/sections/1-forms/50-register-web-components';
+import { AppMain } from "./components/2-main";
+import { UIToaster } from "./components/ui/UiToaster";
+import "@/components/sections/1-forms/50-register-web-components";
 
 function PopperRoot() {
     return (

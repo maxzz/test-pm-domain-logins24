@@ -1,6 +1,6 @@
-import { ReactNode, useState } from 'react';
-import { useMeasure } from 'react-use';
-import { a, config, useSpring } from '@react-spring/web';
+import { ReactNode, useState } from "react";
+import { useMeasure } from "react-use";
+import { a, config, useSpring } from "@react-spring/web";
 
 export function UIAccordion({ toggle, children }: { toggle: boolean, children: ReactNode; }) {
     const [ref, { height, top }] = useMeasure<HTMLDivElement>();

@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react';
-import { a, useSpring } from '@react-spring/web';
+import { HTMLAttributes } from "react";
+import { a, useSpring } from "@react-spring/web";
 
 export function UISectionPane({ className, children, open = true, ...rest }: { open?: boolean; } & HTMLAttributes<HTMLDivElement>) {
     const styles = useSpring({ open: open ? 1 : 0, config: { mass: 0.2, tension: 492, clamp: true } });

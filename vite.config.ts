@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
-import path from 'node:path';
-import react from '@vitejs/plugin-react';
-import { visualizer } from 'rollup-plugin-visualizer';
-import replace from '@rollup/plugin-replace';
+import path from "node:path";
+import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
+import replace from "@rollup/plugin-replace";
 
 const buildAt = () => {
     const d = new Date();

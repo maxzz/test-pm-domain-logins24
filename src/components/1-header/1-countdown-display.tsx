@@ -1,5 +1,5 @@
-import { useAtomValue } from 'jotai';
-import { countdownDisplayNumberAtom } from '@/store';
+import { useAtomValue } from "jotai";
+import { countdownDisplayNumberAtom } from "@/store";
 
 export function CountdownDisplay() {
     const countdownDisplayNumber = useAtomValue(countdownDisplayNumberAtom);
