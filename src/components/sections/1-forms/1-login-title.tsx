@@ -14,7 +14,7 @@ const font = {
     // WebkitTextStroke: '1px #6e6e6e45',
     // WebkitTextFillColor: 'white',
     WebkitTextStroke: '1px #dadada3d',
-    WebkitTextFillColor: '#003165', // hid-bg
+    WebkitTextFillColor: '#003165bc', // hid-bg // #003165
     //transform: 'scaleY(1.2)',
 };
 
@@ -52,7 +52,7 @@ export function LoginTitle({ label, logo, className, ...rest }: LoginTitleProps)
     );
 }
 
-const labelClasses = "text-xl tracking-tight text-slate-50 [text-shadow:1px_2px_2px_#8885] uppercase";
+const labelClasses = "text-2xl tracking-tight [text-shadow:1px_2px_2px_#8885]";
 
 function LoginTitleLogin() {
     return (
@@ -66,7 +66,7 @@ function LoginTitleLogin() {
 function LoginTitleCpass() {
     return (
         <LoginTitle
-            label={<div className={labelClasses}>Password Change</div>}
+            label={<div className={labelClasses}>Change password</div>}
             logo={<div className="inset-0"><IconCpass className="size-12 stroke-slate-400/50" /></div>}
         />
     );

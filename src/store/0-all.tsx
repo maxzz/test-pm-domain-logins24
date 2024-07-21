@@ -2,7 +2,7 @@ import { atom, Getter } from "jotai";
 import { debounce } from "@/utils";
 import { createCreadAtoms, Creds, extractCreds, initialCreds } from "./1-creds-store";
 import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from "./2-nav-options";
-import { createFormOptionAtoms, extractFormOptions, initialFormOptions, FormOptions } from "./3-screen-options";
+import { createFormOptionAtoms, extractFormOptions, initialFormOptions, FormOptions } from "./3-form-options";
 
 namespace Storage {
     const KEY = 'test-domain-logins24';

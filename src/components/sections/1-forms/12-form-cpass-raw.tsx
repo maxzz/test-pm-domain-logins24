@@ -1,5 +1,5 @@
-import { useSetAtom } from "jotai";
-import { doNextScreenAtom, credAtoms } from "@/store";
+import { useAtomValue, useSetAtom } from "jotai";
+import { doNextScreenAtom, credAtoms, formOptionAtoms } from "@/store";
 import { FormHeader, FormType } from "./1-login-title";
 import { FieldPassword } from "./3-field-pass";
 import { FieldSubmit } from "./4-field-submit";
@@ -35,10 +35,10 @@ export function A1_FormCPass_Raw({ suffix = '' }: { suffix?: string; }) {
 export function A1_FormCPass({ suffix = '' }: { suffix?: string; }) {
 
     // The following code will trigger warning: Attempted to synchronously unmount a root while React was already rendering.
-    // const useWebComponents = useAtomValue(screenLoginOptionAtoms.useWebCompAtom);
-    // if (useWebComponents) {
-    //     return <div><web-wrapshadow-cpass /></div>;
-    // }
+    const useFormAsWebComp = useAtomValue(formOptionAtoms.useFormAsWebCompAtom);
+    if (useFormAsWebComp) {
+        return <div><web-wrapshadow-cpass /></div>;
+    }
 
     return (
         <A1_FormCPass_Raw suffix={suffix} />

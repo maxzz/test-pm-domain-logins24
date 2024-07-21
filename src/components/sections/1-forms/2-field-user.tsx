@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
-import { PrimitiveAtom, useAtom } from "jotai";
+import { PrimitiveAtom, useAtom, useAtomValue } from "jotai";
+import { formOptionAtoms } from "@/store";
 
 type FieldUserProps = HTMLAttributes<HTMLInputElement> & {
     fieldAtom: PrimitiveAtom<string>;
@@ -8,6 +9,7 @@ type FieldUserProps = HTMLAttributes<HTMLInputElement> & {
 };
 
 export function FieldUsername({ fieldAtom, fieldId, placeholder = ' ', ...rest }: FieldUserProps) {
+    const twoPswLogin = useAtomValue(formOptionAtoms.twoPswLoginAtom);
     const [value, setValue] = useAtom(fieldAtom);
 
     return (
@@ -15,7 +17,7 @@ export function FieldUsername({ fieldAtom, fieldId, placeholder = ' ', ...rest }
             <input
                 className="py-1.5 w-full peer float-input border-slate-300 border"
                 id={fieldId}
-                type="text"
+                type={twoPswLogin ? "password" : "text"}
                 placeholder={placeholder}
                 value={value}
                 onChange={((e) => setValue(e.target.value))}
