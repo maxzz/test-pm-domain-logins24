@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import { PrimitiveAtom, useAtom, useAtomValue } from "jotai";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 
 type FieldPassProps = HTMLAttributes<HTMLInputElement> & {
     fieldAtom: PrimitiveAtom<string>;
@@ -10,7 +10,7 @@ type FieldPassProps = HTMLAttributes<HTMLInputElement> & {
 
 export function FieldPassword({ fieldAtom, fieldId, placeholder = ' ', ...rest }: FieldPassProps) {
     const [value, setValue] = useAtom(fieldAtom);
-    const reveal = useAtomValue(screenLoginOptionAtoms.revealAtom);
+    const reveal = useAtomValue(formOptionAtoms.revealAtom);
     return (
         <label className="relative">
             <input

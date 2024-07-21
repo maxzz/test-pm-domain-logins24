@@ -1,6 +1,6 @@
 import { Getter } from "jotai";
 import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
-import { screenLoginOptionAtoms } from "./0-all";
+import { formOptionAtoms } from "./0-all";
 
 export type NavOptions = {
     screenIdx: number;      // login (0) or cpass (1) screen
@@ -19,7 +19,7 @@ export function createNavOptionAtoms(initialValues: NavOptions, save: OnValueCha
         showSearchAtom: atomWithCallback(initialValues.showSearch,
             ({ get, set, nextValue }) => {
                 if (nextValue) {
-                    set(screenLoginOptionAtoms.doRunIntervalAtom, false);
+                    set(formOptionAtoms.doRunIntervalAtom, false);
                 }
                 save({ get, set });
             }

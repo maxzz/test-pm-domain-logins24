@@ -1,13 +1,13 @@
 import { HTMLAttributes } from "react";
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 import { OptionInterval } from "./2-option-interval";
 import { LevelSwitch } from "./8-level-switch";
 import { Checkbox } from "./9-checkbox";
 
 export function FormOptions({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
-    const { revealAtom, pageReloadAtom, useWebCompAtom, } = screenLoginOptionAtoms;
+    const { revealAtom, pageReloadAtom, useWebCompAtom, } = formOptionAtoms;
 
     const [reveal, setReveal] = useAtom(revealAtom);
     const [pageReload, setPageReload] = useAtom(pageReloadAtom);

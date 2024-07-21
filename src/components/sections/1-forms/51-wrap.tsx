@@ -1,6 +1,6 @@
 import { ReactNode, HTMLAttributes } from "react";
 import { useAtomValue } from "jotai";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 
 type FormWrapperProps = HTMLAttributes<HTMLElement> & {
@@ -10,8 +10,8 @@ type FormWrapperProps = HTMLAttributes<HTMLElement> & {
 
 export function Wrap({ children, level = 3, className }: FormWrapperProps) {
 
-    const useWebComponents = useAtomValue(screenLoginOptionAtoms.useWebCompAtom);
-    const nestLevel = useAtomValue(screenLoginOptionAtoms.nestLevelAtom);
+    const useWebComponents = useAtomValue(formOptionAtoms.useWebCompAtom);
+    const nestLevel = useAtomValue(formOptionAtoms.nestLevelAtom);
 
     if (!useWebComponents) {
         return (<>

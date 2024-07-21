@@ -1,7 +1,7 @@
 import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
 import { Getter } from "jotai";
 
-export type ScreenLoginOptions = {
+export type FormOptions = {
     reveal: boolean;        // Show or hide password field
     doRunInterval: boolean; // Use reload interval
     intervalSec: number;    // Interval in seconds
@@ -14,7 +14,7 @@ export const enum CONST {
     MaxLevel = 3,
 }
 
-export const initialScreenLoginOptions: ScreenLoginOptions = {
+export const initialFormOptions: FormOptions = {
     reveal: false,
     doRunInterval: false,
     intervalSec: 10,
@@ -23,8 +23,8 @@ export const initialScreenLoginOptions: ScreenLoginOptions = {
     nestLevel: CONST.MaxLevel,
 };
 
-export function createScreenLoginOptionAtoms(initialValues: ScreenLoginOptions, save: OnValueChangeAny): Atomize<ScreenLoginOptions> {
-    const rv: Atomize<ScreenLoginOptions> = {
+export function createFormOptionAtoms(initialValues: FormOptions, save: OnValueChangeAny): Atomize<FormOptions> {
+    const rv: Atomize<FormOptions> = {
         revealAtom: atomWithCallback(initialValues.reveal, save),
         doRunIntervalAtom: atomWithCallback(initialValues.doRunInterval, save),
         intervalSecAtom: atomWithCallback(initialValues.intervalSec, save),
@@ -35,7 +35,7 @@ export function createScreenLoginOptionAtoms(initialValues: ScreenLoginOptions, 
     return rv;
 }
 
-export function extractScreenLoginOptions(screenLoginOptionAtoms: Atomize<ScreenLoginOptions>, get: Getter): ScreenLoginOptions {
+export function extractFormOptions(screenLoginOptionAtoms: Atomize<FormOptions>, get: Getter): FormOptions {
     const rv = {
         reveal: get(screenLoginOptionAtoms.revealAtom),
         doRunInterval: get(screenLoginOptionAtoms.doRunIntervalAtom),

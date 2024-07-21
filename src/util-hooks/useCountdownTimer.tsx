@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PrimitiveAtom, useAtom, useAtomValue, useSetAtom } from "jotai";
-import { countdownDisplayNumberAtom, runCountdownAtom, screenLoginOptionAtoms } from "@/store";
+import { countdownDisplayNumberAtom, runCountdownAtom, formOptionAtoms } from "@/store";
 
 type useCountdownTimerProps = {
     intervalSecVal: number;
@@ -54,8 +54,8 @@ export function useCountdownTimer({ intervalSecVal, countdownDisplayNumberAtom, 
 }
 
 export function HiddenCountdownTimer() {
-    const doRunInterval = useAtomValue(screenLoginOptionAtoms.doRunIntervalAtom);
-    const intervalSecVal = useAtomValue(screenLoginOptionAtoms.intervalSecAtom);
+    const doRunInterval = useAtomValue(formOptionAtoms.doRunIntervalAtom);
+    const intervalSecVal = useAtomValue(formOptionAtoms.intervalSecAtom);
 
     useCountdownTimer({ intervalSecVal, countdownDisplayNumberAtom: countdownDisplayNumberAtom, runCountdownAtom });
 

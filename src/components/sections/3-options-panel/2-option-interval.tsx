@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 import { Checkbox } from "./9-checkbox";
 
 const inputClasses = "px-1 w-10 \
@@ -9,8 +9,8 @@ focus:ring-sky-500 focus:ring-1 focus:ring-offset-1 focus:outline-none \
 border rounded-sm";
 
 export function OptionInterval() {
-    const [doRunInterval, setDoRunInterval] = useAtom(screenLoginOptionAtoms.doRunIntervalAtom);
-    const [intervalSec, setIntervalSec] = useAtom(screenLoginOptionAtoms.intervalSecAtom);
+    const [doRunInterval, setDoRunInterval] = useAtom(formOptionAtoms.doRunIntervalAtom);
+    const [intervalSec, setIntervalSec] = useAtom(formOptionAtoms.intervalSecAtom);
 
     return (
         <div className="flex items-center">

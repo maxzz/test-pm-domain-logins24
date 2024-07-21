@@ -1,5 +1,5 @@
 import { atom, SetStateAction } from "jotai";
-import { navOptionAtoms, runCountdownAtom, screenLoginOptionAtoms } from "./0-all";
+import { navOptionAtoms, runCountdownAtom, formOptionAtoms } from "./0-all";
 
 const _blankScreenAtom = atom<boolean>(false); // show blank screen before login/cpass screen reload
 
@@ -8,7 +8,7 @@ export const blankScreenAtom = atom(
     (get, set, show: SetStateAction<boolean>) => {
         const v = typeof show === 'function' ? show(get(_blankScreenAtom)) : show;
 
-        if (!v && get(screenLoginOptionAtoms.doRunIntervalAtom)) {
+        if (!v && get(formOptionAtoms.doRunIntervalAtom)) {
             set(runCountdownAtom, true);
         }
         set(_blankScreenAtom, v);

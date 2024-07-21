@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { Atom, useAtomValue } from "jotai";
 import { a, easings, useTransition } from "@react-spring/web";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 
 type MountProps = HTMLAttributes<HTMLDivElement> & {
     showAtom: Atom<boolean>;
@@ -32,7 +32,7 @@ export function MountOptions({ showAtom, children }: MountProps) {
 
 export function MountButtonNext({ showAtom, children }: MountProps) {
 
-    const doRunInterval = useAtomValue(screenLoginOptionAtoms.doRunIntervalAtom);
+    const doRunInterval = useAtomValue(formOptionAtoms.doRunIntervalAtom);
     const show = useAtomValue(showAtom);
 
     const transition = useTransition(show && !doRunInterval, {

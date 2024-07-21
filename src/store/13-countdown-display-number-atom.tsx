@@ -1,5 +1,5 @@
 import { atom, SetStateAction } from "jotai";
-import { screenLoginOptionAtoms } from "./0-all";
+import { formOptionAtoms } from "./0-all";
 import { doReloadScreenAtom } from "./12-do-reload-screen-atom";
 
 //#endregion ScreenOptions
@@ -12,7 +12,7 @@ export const countdownDisplayNumberAtom = atom(
     (get, set, value: SetStateAction<number>) => {
         const v = typeof value === 'function' ? value(get(_countdownDisplayNumberAtom)) : value;
 
-        if (v === 0 && get(screenLoginOptionAtoms.doRunIntervalAtom)) {
+        if (v === 0 && get(formOptionAtoms.doRunIntervalAtom)) {
             set(doReloadScreenAtom);
         }
         set(_countdownDisplayNumberAtom, v);

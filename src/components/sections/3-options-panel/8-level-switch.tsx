@@ -1,6 +1,6 @@
 import { ChangeEvent, HTMLAttributes, InputHTMLAttributes } from "react";
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store";
+import { formOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 
 const radioClasses = "\
@@ -31,7 +31,7 @@ function OneRadio(props: InputHTMLAttributes<HTMLInputElement>) {
 
 export function LevelSwitch({ className, ...rest }: HTMLAttributes<HTMLUListElement>) {
 
-    const [nestLevel, setNestLevel] = useAtom(screenLoginOptionAtoms.nestLevelAtom);
+    const [nestLevel, setNestLevel] = useAtom(formOptionAtoms.nestLevelAtom);
 
     function onChange(event: ChangeEvent<HTMLInputElement>) {
         return setNestLevel(+event.target.value);
