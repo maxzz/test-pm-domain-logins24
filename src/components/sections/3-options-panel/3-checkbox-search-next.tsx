@@ -1,4 +1,4 @@
-import { navOptionAtoms, doNextScreenAtom, isLoginScreenAtom } from "@/store/store";
+import { navOptionAtoms, doNextScreenAtom, isLoginScreenAtom } from "@/store";
 import { classNames } from "@/utils";
 import { useAtom, useSetAtom } from "jotai";
 import { MountButtonNext } from "./4-mount-button-next";

@@ -1,5 +1,5 @@
 import { useSetAtom } from "jotai";
-import { doNextScreenAtom, credAtoms } from "@/store/store";
+import { doNextScreenAtom, credAtoms } from "@/store";
 import { FormHeader, FormType } from "./1-login-title";
 import { FieldPassword } from "./3-field-pass";
 import { FieldSubmit } from "./4-field-submit";

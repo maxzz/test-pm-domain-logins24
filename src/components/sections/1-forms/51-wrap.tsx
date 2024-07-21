@@ -1,6 +1,6 @@
 import { ReactNode, HTMLAttributes } from "react";
 import { useAtomValue } from "jotai";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 
 type FormWrapperProps = HTMLAttributes<HTMLElement> & {

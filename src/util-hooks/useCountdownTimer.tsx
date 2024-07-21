@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PrimitiveAtom, useAtom, useAtomValue, useSetAtom } from "jotai";
-import { countdownDisplayNumberAtom, runCountdownAtom, screenLoginOptionAtoms } from "@/store/store";
+import { countdownDisplayNumberAtom, runCountdownAtom, screenLoginOptionAtoms } from "@/store";
 
 type useCountdownTimerProps = {
     intervalSecVal: number;

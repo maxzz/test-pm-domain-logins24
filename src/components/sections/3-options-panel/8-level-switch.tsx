@@ -1,6 +1,6 @@
 import { ChangeEvent, HTMLAttributes, InputHTMLAttributes } from "react";
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 
 const radioClasses = "\

@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 import { Checkbox } from "./9-checkbox";
 
 const inputClasses = "px-1 w-10 \

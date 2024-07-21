@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useAtomValue } from 'jotai';
-import { a, easings, useSpring } from '@react-spring/web';
-import { isCountdownDoneAtom } from '@/store/store';
-import { IconHeroAlien } from '@/components/ui/icons';
+import { useEffect } from "react";
+import { useAtomValue } from "jotai";
+import { a, easings, useSpring } from "@react-spring/web";
+import { isCountdownDoneAtom } from "@/store";
+import { IconHeroAlien } from "@/components/ui/icons";
 
 const alienAnimProps = {
     from: {

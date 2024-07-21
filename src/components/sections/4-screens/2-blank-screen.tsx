@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai";
 import { a, easings, useSpring } from "@react-spring/web";
-import { blankScreenAtom } from "@/store/store";
+import { blankScreenAtom } from "@/store";
 
 export function BlankScreen() {
     const blankScreen = useSetAtom(blankScreenAtom);

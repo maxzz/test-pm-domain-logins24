@@ -1,5 +1,5 @@
 import { useAtomValue } from "jotai";
-import { isLoginScreenAtom } from "@/store/store";
+import { isLoginScreenAtom } from "@/store";
 import { FormOptions } from "./1-form-options";
 import { CheckboxSearchNext } from "./3-checkbox-search-next";
 import { classNames } from "@/utils";

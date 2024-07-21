@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { Atom, useAtomValue } from "jotai";
 import { a, easings, useTransition } from "@react-spring/web";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 
 type MountProps = HTMLAttributes<HTMLDivElement> & {
     showAtom: Atom<boolean>;

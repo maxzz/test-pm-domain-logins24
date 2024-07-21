@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import { PrimitiveAtom, useAtom, useAtomValue } from "jotai";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 
 type FieldPassProps = HTMLAttributes<HTMLInputElement> & {
     fieldAtom: PrimitiveAtom<string>;

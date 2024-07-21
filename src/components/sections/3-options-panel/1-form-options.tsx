@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import { useAtom } from "jotai";
-import { screenLoginOptionAtoms } from "@/store/store";
+import { screenLoginOptionAtoms } from "@/store";
 import { classNames } from "@/utils";
 import { OptionInterval } from "./2-option-interval";
 import { LevelSwitch } from "./8-level-switch";

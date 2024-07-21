@@ -1,5 +1,5 @@
 import { useSetAtom } from "jotai";
-import { navOptionAtoms, credAtoms } from "@/store/store";
+import { navOptionAtoms, credAtoms } from "@/store";
 import { FormHeader, FormType } from "./1-login-title";
 import { FieldUsername } from "./2-field-user";
 import { FieldSubmit } from "./4-field-submit";

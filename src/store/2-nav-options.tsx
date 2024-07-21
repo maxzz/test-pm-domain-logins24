@@ -1,5 +1,5 @@
 import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
-import { screenLoginOptionAtoms } from "./store";
+import { screenLoginOptionAtoms } from ".";
 import { Getter } from "jotai";
 
 export type NavOptions = {
