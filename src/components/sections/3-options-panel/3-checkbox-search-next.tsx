@@ -1,6 +1,6 @@
+import { useAtom, useSetAtom } from "jotai";
 import { navOptionAtoms, doNextScreenAtom, isLoginScreenAtom } from "@/store";
 import { classNames } from "@/utils";
-import { useAtom, useSetAtom } from "jotai";
 import { MountButtonNext } from "./4-mount-button-next";
 
 const input1Classes = "size-3 form-checkbox text-slate-400 focus:ring-slate-500 focus:ring-1 rounded cursor-pointer";

@@ -42,3 +42,5 @@ export function OptionInterval() {
         </div>
     );
 }
+
+//TODO: check validity of intervalVal
