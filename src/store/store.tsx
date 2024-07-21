@@ -3,10 +3,7 @@ import { Atomize, atomWithCallback } from '@/util-hooks';
 import { debounce } from '@/utils';
 import { createCreadAtoms, Creds, extractCreds, initialCreds } from './1-creds-store';
 import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from './2-nav-options';
-
-export const enum CONST {
-    MaxLevel = 3,
-}
+import { createScreenLoginOptionAtoms, extractScreenLoginOptions, initialScreenLoginOptions, ScreenLoginOptions } from './3-screen-options';
 
 //#region Storage
 
@@ -19,14 +16,7 @@ type Store = {
 export let initialStoreData: Store = {
     creds: { ...initialCreds },
     navOptions: { ...initialNavOptions },
-    screenLoginOptions: {
-        reveal: false,
-        doRunInterval: false,
-        intervalSec: 10,
-        pageReload: false,
-        useWebComp: false,
-        nestLevel: CONST.MaxLevel,
-    },
+    screenLoginOptions: { ...initialScreenLoginOptions },
 };
 
 namespace Storage {
@@ -41,7 +31,7 @@ namespace Storage {
                 // initialData = { ...initialData, creds: {...creds}, navOptions: {...navOptions}, screenLoginOptions: {...screenLoginOptions}, };
                 initialStoreData.creds = { ...initialCreds, ...creds };
                 initialStoreData.navOptions = { ...initialNavOptions, ...navOptions };
-                initialStoreData.screenLoginOptions = { ...initialStoreData.screenLoginOptions, ...screenLoginOptions };
+                initialStoreData.screenLoginOptions = { ...initialScreenLoginOptions, ...screenLoginOptions };
             } catch (error) {
             }
         }
@@ -49,21 +39,17 @@ namespace Storage {
 
     load();
 
-    export const saveDebounced = debounce(function _save(get: Getter) {
-        let newStore: Store = {
-            creds: extractCreds(credAtoms, get),
-            navOptions: extractNavOptions(navOptionAtoms, get),
-            screenLoginOptions: {
-                reveal: get(screenLoginOptionAtoms.revealAtom),
-                doRunInterval: get(screenLoginOptionAtoms.doRunIntervalAtom),
-                intervalSec: get(screenLoginOptionAtoms.intervalSecAtom),
-                pageReload: get(screenLoginOptionAtoms.pageReloadAtom),
-                useWebComp: get(screenLoginOptionAtoms.useWebCompAtom),
-                nestLevel: get(screenLoginOptionAtoms.nestLevelAtom),
-            },
-        };
-        localStorage.setItem(KEY, JSON.stringify(newStore));
-    }, 1000);
+    export const saveDebounced = debounce(
+        function _save(get: Getter) {
+            const newStore: Store = {
+                creds: extractCreds(credAtoms, get),
+                navOptions: extractNavOptions(navOptionAtoms, get),
+                screenLoginOptions: extractScreenLoginOptions(screenLoginOptionAtoms, get)
+            };
+
+            localStorage.setItem(KEY, JSON.stringify(newStore));
+        }, 1000
+    );
 
     export const save = ({ get }: { get: Getter; }) => Storage.saveDebounced(get);
 }
@@ -124,23 +110,7 @@ export const doReloadScreenAtom = atom(
 
 //#region ScreenOptions
 
-type ScreenLoginOptions = {
-    reveal: boolean;        // Show or hide password field
-    doRunInterval: boolean; // Use reload interval
-    intervalSec: number;    // Interval in seconds
-    pageReload: boolean;    // Reload page vs. form
-    useWebComp: boolean;    // Use WebComponents
-    nestLevel: number;      // Show WebComponents at nested level N
-};
-
-export const screenLoginOptionAtoms: Atomize<ScreenLoginOptions> = {
-    revealAtom: atomWithCallback(initialStoreData.screenLoginOptions.reveal, Storage.save),
-    doRunIntervalAtom: atomWithCallback(initialStoreData.screenLoginOptions.doRunInterval, Storage.save),
-    intervalSecAtom: atomWithCallback(initialStoreData.screenLoginOptions.intervalSec, Storage.save),
-    pageReloadAtom: atomWithCallback(initialStoreData.screenLoginOptions.pageReload, Storage.save),
-    useWebCompAtom: atomWithCallback(initialStoreData.screenLoginOptions.useWebComp, Storage.save),
-    nestLevelAtom: atomWithCallback(initialStoreData.screenLoginOptions.nestLevel, Storage.save),
-};
+export const screenLoginOptionAtoms = createScreenLoginOptionAtoms(initialStoreData.screenLoginOptions, Storage.save);
 
 //#endregion ScreenOptions
 
