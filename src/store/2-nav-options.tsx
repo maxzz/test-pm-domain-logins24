@@ -1,6 +1,6 @@
-import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
-import { screenLoginOptionAtoms } from ".";
 import { Getter } from "jotai";
+import { Atomize, atomWithCallback, OnValueChangeAny } from "@/util-hooks";
+import { screenLoginOptionAtoms } from "./0-all";
 
 export type NavOptions = {
     screenIdx: number;      // login (0) or cpass (1) screen
@@ -27,8 +27,6 @@ export function createNavOptionAtoms(initialValues: NavOptions, save: OnValueCha
     };
     return rv;
 }
-
-//TODO: update ref to screenLoginOptionAtoms
 
 export function extractNavOptions(navOptionAtoms: Atomize<NavOptions>, get: Getter): NavOptions {
     const rv = {

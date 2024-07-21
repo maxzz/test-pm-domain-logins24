@@ -4,6 +4,7 @@ import { debounce } from "@/utils";
 import { createCreadAtoms, Creds, extractCreds, initialCreds } from "./1-creds-store";
 import { createNavOptionAtoms, extractNavOptions, initialNavOptions, NavOptions } from "./2-nav-options";
 import { createScreenLoginOptionAtoms, extractScreenLoginOptions, initialScreenLoginOptions, ScreenLoginOptions } from "./3-screen-options";
+import { blankScreenAtom } from "./10-blank-screen-atom";
 
 //#region Storage
 
@@ -65,29 +66,6 @@ export const credAtoms = createCreadAtoms(initialStoreData.creds, Storage.save);
 //#region NavOptions
 
 export const navOptionAtoms = createNavOptionAtoms(initialStoreData.navOptions, Storage.save);
-
-const _blankScreenAtom = atom<boolean>(false); // show blank screen before login/cpass screen reload
-
-export const blankScreenAtom = atom(
-    (get) => get(_blankScreenAtom),
-    (get, set, show: SetStateAction<boolean>) => {
-        const v = typeof show === 'function' ? show(get(_blankScreenAtom)) : show;
-
-        if (!v && get(screenLoginOptionAtoms.doRunIntervalAtom)) {
-            set(runCountdownAtom, true);
-        }
-        set(_blankScreenAtom, v);
-    }
-);
-
-export const isLoginScreenAtom = atom(
-    (get) => /* get(navOptionAtoms.screenIdxAtom) === 0 && */ !get(navOptionAtoms.showSearchAtom),
-    // OK but no need:
-    // (get, set, value: SetStateAction<boolean>) => {
-    //     const v = typeof value === 'function' ? value(!get(navOptionAtoms.showSearchAtom)) : value;
-    //     set(navOptionAtoms.showSearchAtom, !v);
-    // }
-);
 
 export const doNextScreenAtom = atom(
     null,
