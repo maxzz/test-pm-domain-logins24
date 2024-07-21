@@ -19,7 +19,7 @@ export function AppMain() {
         <div className="flex-1 overflow-y-auto bg-gradient-to-r from-slate-100 to-slate-50" style={testAreaStyles}>
             <div className="pb-4 h-full flex flex-col justify-between text-slate-900">
                 <A3_Screens />
-                <OptionsPanel />
+                {/* <OptionsPanel /> */}
             </div>
         </div>
 

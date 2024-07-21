@@ -10,6 +10,8 @@ module.exports = {
             },
             fontFamily: {
                 'old-normal': [...defaultTheme.fontFamily.sans],
+                'ui': ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
+                'montserrat': ["Montserrat", ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))', //bg-gradient-radial from-slate-500 via-transparent to-transparent

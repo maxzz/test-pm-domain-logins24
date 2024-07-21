@@ -175,7 +175,7 @@ export const doReloadScreenAtom = atom(
 
 type ScreenLoginOptions = {
     reveal: boolean;        // Show or hide password field
-    doRunInterval: boolean;    // Use reload interval
+    doRunInterval: boolean; // Use reload interval
     intervalSec: number;    // Interval in seconds
     pageReload: boolean;    // Reload page vs. form
     useWebComp: boolean;    // Use WebComponents
