@@ -33,7 +33,7 @@ border-4 rounded-md \
 flex items-center justify-center";
 
 export function LoginTitle({ label, logo, className, ...rest }: LoginTitleProps) {
-    const styles = useSpring({
+    const anim = useSpring({
         from: { scale: 0, borderWidth: '4px', opacity: 0 },
         to: { scale: 1, borderWidth: '1px', opacity: 1, },
         delay: 400,
@@ -45,7 +45,7 @@ export function LoginTitle({ label, logo, className, ...rest }: LoginTitleProps)
                 {label}
             </div>
 
-            <a.div style={styles} className={logoClasses}>
+            <a.div style={anim} className={logoClasses}>
                 {logo}
             </a.div>
         </div>
