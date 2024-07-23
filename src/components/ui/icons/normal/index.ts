@@ -9,5 +9,6 @@ export * from "./21-cpass";
 export * from "./30-github-logo";
 
 export * from "./70-site-link-nun";
+export * from "./71-hero-w-ref-nun";
 
 export * from "./UIIcons";
