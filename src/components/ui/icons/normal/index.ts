@@ -7,9 +7,10 @@ export * from "./20-login";
 export * from "./21-cpass";
 
 export * from "./30-github-logo";
+export * from "./31-download";
+export * from "./32-clipboard";
 
 export * from "./70-site-link-nun";
 export * from "./71-hero-w-ref-nun";
 export * from "./72-image-plus-nun";
 
-export * from "./UIIcons";
