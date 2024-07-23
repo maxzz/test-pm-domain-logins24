@@ -6,6 +6,8 @@ export * from "./04-search";
 export * from "./20-login";
 export * from "./21-cpass";
 
+export * from "./30-github-logo";
+
 export * from "./70-site-link-nun";
 
 export * from "./UIIcons";
