@@ -10,7 +10,7 @@
         "@react-spring/web": "9.7.4",
         "@use-gesture/react": "10.3.1",
         "dom-confetti": "^0.2.2",
-        "jotai": "2.9.0",
+        "jotai": "2.9.1",
         "leva": "0.9.35",
         "marked": "13.0.2",
         "react": "^18.3.1",
@@ -23,7 +23,7 @@
     "devDependencies": {
         "@rollup/plugin-replace": "^5.0.7",
         "@tailwindcss/forms": "0.5.7",
-        "@types/node": "20.14.11",
+        "@types/node": "20.14.12",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
         "@vitejs/plugin-react": "4.3.1",
