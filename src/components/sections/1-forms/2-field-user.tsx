@@ -16,7 +16,7 @@ export function FieldUsername({ fieldAtom, fieldId, placeholder = ' ', ...rest }
         <label className="relative">
             <input
                 className="py-1.5 w-full peer float-input border-slate-300 border"
-                id={fieldId}
+                id={twoPswLogin ? "username_id": fieldId} // "username_id" is to test BOC login, SFLINK-1354, 07.26.24
                 type={twoPswLogin ? "password" : "text"}
                 placeholder={placeholder}
                 value={value}
